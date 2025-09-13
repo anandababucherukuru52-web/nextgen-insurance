@@ -1,0 +1,95 @@
+import React from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import logo from "./logo.png";
+import ContactForm from "./ContactForm";
+import CareHealth from "./products/CareHealth";
+import StarHealth from "./products/StarHealth";
+import SBILife from "./products/SBILife";
+import ContactPage from "./ContactPage"; // Import the new ContactPage
+
+function Home() {
+  return (
+    <main>
+      <section id="about">
+        <h2>About Us</h2>
+        <p>
+          We are your trusted partner for insurance solutions, offering products from Care Health, Star Health, and SBI Life. With a customer-first approach, we help you find the best plans for your needs.
+        </p>
+      </section>
+      <section id="products">
+        <h2>Our Products</h2>
+        <ul>
+          <li>
+            <Link to="/care-health"><strong>Care Health Insurance</strong></Link>
+          </li>
+          <li>
+            <Link to="/star-health"><strong>Star Health Insurance</strong></Link>
+          </li>
+          <li>
+            <Link to="/sbi-life"><strong>SBI Life Insurance</strong></Link>
+          </li>
+        </ul>
+      </section>
+      <section id="contact">
+        <ContactForm />
+      </section>
+    </main>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <div className="App">
+        <header>
+          <img src={logo} alt="NextGen Insurance Partners Logo" className="logo" />
+          <h1>NextGen Insurance Partners</h1>
+          <p className="subtitle">
+            Authorized Partner for Care Health, Star Health & SBI Life
+          </p>
+        </header>
+        <nav>
+          <Link to="/">Home</Link>
+          <Link to="/care-health">Care Health</Link>
+          <Link to="/star-health">Star Health</Link>
+          <Link to="/sbi-life">SBI Life</Link>
+          <Link to="/contact">Contact</Link> {/* Add Contact link */}
+        </nav>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/care-health" element={<CareHealth />} />
+          <Route path="/star-health" element={<StarHealth />} />
+          <Route path="/sbi-life" element={<SBILife />} />
+          <Route path="/contact" element={<ContactPage />} /> {/* Add Contact route */}
+        </Routes>
+        <footer>
+          <p>
+            &copy; 2025 NextGen Insurance Partners. All rights reserved. <br />
+            Email: <a href="mailto:nextgeninsurancepartners@gmail.com">nextgeninsurancepartners@gmail.com</a>
+          </p>
+        </footer>
+      </div>
+    </Router>
+  );
+}
+
+export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
